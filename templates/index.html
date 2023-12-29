@@ -26,12 +26,14 @@
                 <tr>
                 <th>Username</th>
                 <th>Hostname</th>
+                <th>Delete</th>
                 </tr>
         
         {% for user in users%}
         <tr>
             <td>{{user[0]}}</td>
             <td>{{user[1]}}</td>
+            <td><a href="/delete/{{user[3]}}"><button style="width: 50px;background-color: red;">X</button></a></td>
         </tr>
         {%endfor%}
     </table>

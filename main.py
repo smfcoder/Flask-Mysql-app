@@ -18,10 +18,9 @@ hname= socket.gethostname()
 
 @app.route('/')
 def home():
-    
     #print(hname)
     cursor = mysql.connection.cursor()
-    cursor.execute('''SELECT username,hostname FROM users''')
+    cursor.execute('''SELECT username,hostname,id FROM users''')
     users = cursor.fetchall()
     print(cursor.fetchall())
     # users = curl.fetchall()
@@ -42,6 +41,14 @@ def add():
         return redirect('/')
     return render_template("add.html",hostname=hname)
 
+@app.route('/delete/<int:id>')
+def delete(id):
+    cursor = mysql.connection.cursor()
+    cursor.execute('''DELETE FROM users WHERE id=%s''', (id,))
+    mysql.connection.commit()
+    cursor.close()
+    print('deleted id: ',id)
+    return redirect('/')
 
 
 if __name__ == "__main__":
