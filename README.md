@@ -1,1 +1,1 @@
-Flask Mysql Application to run in docker
+Flask Mysql Application code to run in local
