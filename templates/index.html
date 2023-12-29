@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Flask Docker</title>
+<style>
+    table,th,td,tr{
+        border: 1px solid black;
+        text-align: center;
+    }
+    td{
+        width: 300px;
+    }
+    th{
+        width: 300px;
+    }
+</style>
+</head>
+<body>
+    <h1>This is a Flask App containerised with Docker and running on</h1>
+    <h1>Hostname : {{hostname}}</h1>
+    <h4>To add Record click here: <a href="/add">Add</a></h4>
+    <h4>Data from Database:<br></h4>
+        <table> 
+                <tr>
+                <th>Username</th>
+                <th>Hostname</th>
+                </tr>
+        
+        {% for user in users%}
+        <tr>
+            <td>{{user[0]}}</td>
+            <td>{{user[1]}}</td>
+        </tr>
+        {%endfor%}
+    </table>
+
+</body>
+</html>
